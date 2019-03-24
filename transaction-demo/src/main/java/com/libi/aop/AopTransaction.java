@@ -26,7 +26,7 @@ public class AopTransaction {
         TransactionStatus status = transactionUtils.begin();
         proceedingJoinPoint.proceed();
         System.out.println("提交事务");
-        transactionUtils.commit(status);
+        transactionUtils.commit();
     }
 
 //    @AfterThrowing("execution(* com.libi.service.UserService.add(..))")

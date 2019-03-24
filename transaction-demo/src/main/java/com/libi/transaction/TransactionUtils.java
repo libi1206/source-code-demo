@@ -6,6 +6,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.interceptor.DefaultTransactionAttribute;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 /**
  * @author libi
@@ -17,6 +18,9 @@ import org.springframework.transaction.interceptor.DefaultTransactionAttribute;
 public class TransactionUtils {
     @Autowired
     private DataSourceTransactionManager dataSourceTransactionManager;
+
+    private TransactionStatus status;
+
     /** 开启事务*/
     public TransactionStatus begin() {
         //使用默认的传播级别
@@ -25,12 +29,15 @@ public class TransactionUtils {
     }
 
     /** 提交事务 需要传入这个事务状态*/
-    public void commit(TransactionStatus transaction) {
-        dataSourceTransactionManager.commit(transaction);
+    public void commit() {
+        dataSourceTransactionManager.commit(status);
     }
 
     /**回滚事务 需要传入这个事务状态*/
-    public void rollBack(TransactionStatus transaction) {
-        dataSourceTransactionManager.rollback(transaction);
+    public void rollBack() {
+        //获取当前事务，如果有，就回滚
+        if (status != null) {
+            dataSourceTransactionManager.rollback(status);
+        }
     }
 }

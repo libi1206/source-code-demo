@@ -1,5 +1,6 @@
 package com.libi.service.impl;
 
+import com.libi.annotation.ExtTransaction;
 import com.libi.dao.UserDao;
 import com.libi.service.UserService;
 import com.libi.transaction.TransactionUtils;
@@ -17,7 +18,8 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
+//    @Transactional(rollbackFor = Exception.class)
+    @ExtTransaction
     public void add() {
         userDao.add("test001", "1233321");
         System.out.println("中间的间隔，且出现异常");
