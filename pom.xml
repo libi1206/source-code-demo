@@ -12,6 +12,7 @@
         <module>transaction-demo</module>
         <module>annotation-demo</module>
         <module>ioc-demo</module>
+        <module>mvc-demo</module>
     </modules>
 
     <dependencies>

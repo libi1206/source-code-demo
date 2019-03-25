@@ -41,7 +41,7 @@ public class User {
 直接上代码
 ```$xslt
     public static void main(String[] args) throws ClassNotFoundException {
-        Class<?> targetClass = Class.forName("com.libi.entity.User");
+        Class<?> targetClass = Class.forName("com.libi.annodemo.entity.User");
         //获取当前类所有的方法（不包括父类的方法）
         Method[] declaredMethods = targetClass.getDeclaredMethods();
         for (Method declaredMethod : declaredMethods) {

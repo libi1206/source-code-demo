@@ -1,7 +1,7 @@
-package com.test;
+package com.libi.transaction;
 
 import com.libi.transaction.config.RootConfig;
-import com.libi.transaction.dao.UserDao;
+import com.libi.transaction.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,14 +10,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author libi
+ * 模拟用户调用
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = RootConfig.class)
-public class TestDao {
+public class Cluster {
     @Autowired
-    private UserDao userDao;
+    private  UserService userService;
     @Test
-    public void TestUserDao() {
-        userDao.add("libi5","123123");
+    public void cluster() {
+        userService.add();
     }
 }
