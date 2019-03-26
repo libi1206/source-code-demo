@@ -53,14 +53,9 @@ public class ExtAnnotationApplicationContext {
                 //到这里表示有这个注解
                 String className = classInfo.getName();
                 //默认Id是首字母小写
-                beans.put(toLowerCaseFirestOne(classInfo.getSimpleName()), newInstance(classInfo));
+                beans.put(ClassUtils.toLowerCaseFirstOne(classInfo.getSimpleName()), newInstance(classInfo));
             }
         }
-    }
-
-    /**类名的首字母小写*/
-    private String toLowerCaseFirestOne(String className) {
-        return new StringBuilder().append(Character.toLowerCase(className.charAt(0))).append(className.substring(1)).toString();
     }
 
     /**获取Bean的方法*/
@@ -101,4 +96,6 @@ public class ExtAnnotationApplicationContext {
         }
 
     }
+
+
 }
