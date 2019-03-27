@@ -13,6 +13,7 @@
         <module>annotation-demo</module>
         <module>ioc-demo</module>
         <module>mvc-demo</module>
+        <module>data-source-demo</module>
     </modules>
 
     <dependencies>
