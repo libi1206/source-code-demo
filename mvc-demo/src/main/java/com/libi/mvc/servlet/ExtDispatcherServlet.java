@@ -1,9 +1,8 @@
 package com.libi.mvc.servlet;
 
-import com.libi.mvc.utils.ClassUtils;
 import com.libi.mvc.annotation.ExtController;
 import com.libi.mvc.annotation.ExtRequestMapping;
-import com.sun.deploy.net.HttpRequest;
+import com.libi.mvc.utils.ClassUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
